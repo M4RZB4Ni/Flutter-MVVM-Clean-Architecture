@@ -12,6 +12,7 @@ class HomeBinding extends Bindings {
   void dependencies() {
     Get.lazyPut<HomeViewModel>(() => HomeViewModel(Get.find<PhotoUseCase>()),
         fenix: true);
+
     Get.lazyPut<PhotoUseCase>(
         () => PhotoUseCaseImpl(Get.find<PhotosRepository>()),
         fenix: true);

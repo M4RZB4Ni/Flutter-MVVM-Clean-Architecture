@@ -7,7 +7,6 @@ part 'search_criteria.g.dart';
 @freezed
 class SearchCriteria with _$SearchCriteria {
   const factory SearchCriteria ({
-    required String method,
     required String text,
   }) = _SearchCriteria;
 

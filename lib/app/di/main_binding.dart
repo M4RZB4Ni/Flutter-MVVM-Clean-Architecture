@@ -8,7 +8,7 @@ class MainBinding implements Bindings{
   @override
   void dependencies() {
     HomeBinding().dependencies();
-    Get.lazyPut(NetworkClient.new ,fenix:true);
+    Get.lazyPut<NetworkClient>(NetworkClient.new ,fenix:true);
 
   }
 

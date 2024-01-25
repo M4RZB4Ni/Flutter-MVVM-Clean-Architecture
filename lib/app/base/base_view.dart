@@ -27,7 +27,6 @@ abstract class BaseView<Controller extends BaseController>
   bool resizeToAvoidBottomInset() => true;
 
   bool canPop(final BuildContext context) {
-    Navigator.of(context).pop();
     return true;
   }
 
@@ -37,20 +36,16 @@ abstract class BaseView<Controller extends BaseController>
   Widget build(final BuildContext context) {
     return GestureDetector(
       onTap: () {
-        FocusScope.of(context).requestFocus(FocusNode());
+        // FocusScope.of(context).requestFocus(FocusNode());
       },
-      child: Stack(
-        children: [
-          Obx(
-                () => controller.pageState.when(
-              idle: () => annotatedRegion(context),
-              loading: _showLoading,
-              data: (final data) => annotatedRegion(context),
-              lostConnection: () => annotatedRegion(context),
-              error: (ExceptionHandler error) { return "Error in Load Data".toWidget(); },
-            ),
-          ),
-        ],
+      child: Obx(
+            () => controller.pageState.when(
+          idle: () => annotatedRegion(context),
+          loading: () => _showLoading(),
+          data: (final data) => annotatedRegion(context),
+          lostConnection: () => annotatedRegion(context),
+          error: (ExceptionHandler error) { return "Error in Load Data".toWidget(); },
+        ),
       ),
     );
   }
@@ -61,18 +56,14 @@ abstract class BaseView<Controller extends BaseController>
       statusBarColor: statusBarColor(),
       statusBarIconBrightness: Brightness.light,
     ),
-    child: Material(
-      color: Colors.transparent,
-      child: pageContent(context),
-    ),
+    child: pageContent(context),
   );
 
   Widget pageScaffold(final BuildContext context) => PopScope(
-    canPop: canPop(context),
+    canPop: false,
     child: Scaffold(
       //sets ios status bar color
       backgroundColor: pageBackgroundColor(),
-      key: globalKey,
       appBar: appBar(context),
       floatingActionButton: floatingActionButton(),
       floatingActionButtonLocation: floatingActionButtonLocation(),

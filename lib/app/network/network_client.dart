@@ -2,6 +2,7 @@ import 'package:communere/app/base/api_result.dart';
 import 'package:communere/app/network/exception_handler.dart';
 import 'package:communere/app/network/network_enums.dart';
 import 'package:communere/app/network/response.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -23,7 +24,7 @@ class NetworkClient {
               {
             case HttpResponseType.REST:
               _myTransformer.parse(response.body.toString());
-              return Response(status: true, result: _myTransformer.toGData(), statusCode: response.statusCode);
+              return Response(status: true, result: jsonDecode(_myTransformer.toGData())['rsp'], statusCode: response.statusCode);
 
             case HttpResponseType.XML:
               return Response(status: true, result: response.body, statusCode: response.statusCode);
@@ -43,6 +44,7 @@ class NetworkClient {
         final String? customToken,
         final Map<String, String>? headers,
       }) async {
+    debugPrint("the Url from NetworkClient is--> $url");
     http.Response? response;
     Map<String, String>? requestHeader = {
       'Content-Type': 'application/json',
