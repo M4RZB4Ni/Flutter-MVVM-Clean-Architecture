@@ -12,21 +12,11 @@ class PhotoRepositoryImpl extends PhotosRepository {
 
   @override
   Future<ApiResult<Photos>> getRecentPhotos() async {
-    final result = await dataSource.getRecentPhotos();
-    return result.when(
-      success: (data) => ApiResult.success(data: data),
-      failure: (error) => ApiResult.failure(error: error),
-    );
+    return await dataSource.getRecentPhotos();
   }
 
   @override
-  Future<ApiResult<Photos>> searchPhotos(
-      {required SearchCriteria searchCriteria}) async {
-      final result =
-          await dataSource.searchPhotos(searchCriteria: searchCriteria);
-      return result.when(
-        success: (data) => ApiResult.success(data: data),
-        failure: (error) => ApiResult.failure(error: error),
-      );
+  Future<ApiResult<Photos>> searchPhotos({required SearchCriteria searchCriteria}) async {
+    return await dataSource.searchPhotos(searchCriteria: searchCriteria);
   }
 }
