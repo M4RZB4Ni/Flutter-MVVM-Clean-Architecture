@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of the application.
   @override
   Widget build(BuildContext context) {
-    return   ScreenUtilInit(
+    return  ScreenUtilInit(
       designSize: const Size(360, 640),
       minTextAdapt: true,
       splitScreenMode: true,
