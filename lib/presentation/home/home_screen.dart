@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 class HomeScreen extends BaseView<HomeViewModel>
 {
+  static const String url = "/home";
+
   HomeScreen({super.key});
 
   @override
