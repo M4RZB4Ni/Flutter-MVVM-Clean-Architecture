@@ -11,8 +11,9 @@ import 'package:communere/domain/entities/search/search_criteria.dart';
 class PhotosRemoteDataSource extends PhotosDataSource {
   final NetworkClient _networkClient;
 
-  PhotosRemoteDataSource({required NetworkClient networkClient})
-      : _networkClient = networkClient;
+  PhotosRemoteDataSource(this._networkClient);
+
+
 
   @override
   Future<ApiResult<Photos>> getRecentPhotos() async {

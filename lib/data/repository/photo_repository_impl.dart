@@ -5,18 +5,19 @@ import 'package:communere/domain/entities/search/search_criteria.dart';
 
 import '../../domain/repository/photos_repository.dart';
 
-class PhotoRepositoryImpl extends PhotosRepository {
-  final PhotosDataSource dataSource;
+class PhotosRepositoryImpl extends PhotosRepository {
+  final PhotosDataSource _dataSource;
 
-  PhotoRepositoryImpl({required this.dataSource});
+  PhotosRepositoryImpl(this._dataSource);
+
 
   @override
   Future<ApiResult<Photos>> getRecentPhotos() async {
-    return await dataSource.getRecentPhotos();
+    return await _dataSource.getRecentPhotos();
   }
 
   @override
   Future<ApiResult<Photos>> searchPhotos({required SearchCriteria searchCriteria}) async {
-    return await dataSource.searchPhotos(searchCriteria: searchCriteria);
+    return await _dataSource.searchPhotos(searchCriteria: searchCriteria);
   }
 }
