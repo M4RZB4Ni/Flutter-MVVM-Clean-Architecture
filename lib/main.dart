@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return GetMaterialApp(
           locale: Get.locale,
-          title: 'CarePoint',
+          title: 'Flicker Images',
           initialBinding: MainBinding(),
           debugShowCheckedModeBanner: true,
           initialRoute: HomeScreen.url,
