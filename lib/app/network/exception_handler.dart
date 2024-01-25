@@ -201,7 +201,6 @@ class ExceptionHandler with _$ExceptionHandler {
 
       case 401:
 
-
         return const ExceptionHandler.unauthorizedRequest(
             'Please Check Token');
       case 403:
@@ -210,51 +209,39 @@ class ExceptionHandler with _$ExceptionHandler {
         return const ExceptionHandler.forbidden();
       case 404:
 
-
         return const ExceptionHandler.notFound(
             'Route Not found, Check your address');
       case 405:
 
-
         return const ExceptionHandler.methodNotAllowed();
       case 409:
-
 
         return const ExceptionHandler.conflict();
       case 408:
 
-
         return const ExceptionHandler.requestTimeout();
       case 412:
-
 
         return const ExceptionHandler.preConditionError();
       case 500:
 
-
         return const ExceptionHandler.internalServerError();
       case 501:
-
 
         return const ExceptionHandler.notImplemented();
       case 502:
 
-
         return const ExceptionHandler.badGateway();
       case 503:
-
 
         return const ExceptionHandler.serviceUnavailable();
       case 504:
 
-
         return const ExceptionHandler.gatewayTimeout();
       case 511:
 
-
         return const ExceptionHandler.networkAuthRequired();
       default:
-
 
         return const ExceptionHandler.unexpectedError();
     // return ExceptionHandler.defaultError(

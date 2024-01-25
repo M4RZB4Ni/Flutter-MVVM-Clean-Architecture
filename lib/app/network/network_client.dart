@@ -1,31 +1,45 @@
+import 'package:communere/app/base/api_result.dart';
+import 'package:communere/app/network/exception_handler.dart';
 import 'package:communere/app/network/network_enums.dart';
 import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 import 'dart:convert';
+
 import 'package:xml2json/xml2json.dart';
 
 
 
 class NetworkClient {
 
-/*  final myTransformer = Xml2Json();
+  final _myTransformer = Xml2Json();
 
-  String responseHandler(final HttpResponseType responseType,String httpReceivedResponse){
 
-      if(responseType==HttpResponseType.REST)
+
+  ApiResult _responseHandler(final HttpResponseType responseType,Response response){
+
+      if(response.statusCode<300 && response.statusCode>=200)
         {
-          myTransformer.parse(httpReceivedResponse);
-          return myTransformer.toGData();
-        }
-      return httpReceivedResponse;
-  }*/
+          switch(responseType)
+              {
+            case HttpResponseType.REST:
+              _myTransformer.parse(response.body);
+              return ApiResult.success(data: _myTransformer.toGData());
+
+            case HttpResponseType.XML:
+              return ApiResult.success(data: response.body);
+          }
+        }else{
+        return ApiResult.failure(error: ExceptionHandler.handleResponse(response.statusCode));
+      }
+  }
 
 
-  Future<http.Response> sendRequest(
+  Future<ApiResult> sendRequest(
       final String url,
       {
         required final HttpRequestType requestType,
         final HttpResponseType responseType = HttpResponseType.REST,
-        final dynamic params,
+        final dynamic bodyData,
         final String? customToken,
         final Map<String, String>? headers,
       }) async {
@@ -41,21 +55,21 @@ class NetworkClient {
     switch (requestType) {
       case HttpRequestType.POST:
         response = await http.post(Uri.parse(url),
-            body: json.encode(params), headers: requestHeader);
-        return  response;
+            body: json.encode(bodyData), headers: requestHeader);
+        return  _responseHandler(responseType, response);
 
       case HttpRequestType.GET:
         response = await http.get(Uri.parse(url), headers: requestHeader);
-        return response;
+        return  _responseHandler(responseType, response);
 
       case HttpRequestType.PUT:
         response = await http.put(Uri.parse(url),
-            body: json.encode(params), headers: requestHeader);
-        return response;
+            body: json.encode(bodyData), headers: requestHeader);
+        return  _responseHandler(responseType, response);
       case HttpRequestType.PATCH:
         response = await http.patch(Uri.parse(url),
-            headers: requestHeader, body: json.encode(params));
-        return response;
+            headers: requestHeader, body: json.encode(bodyData));
+        return  _responseHandler(responseType, response);
     }
   }
 }

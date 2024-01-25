@@ -1,12 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'photo_dao.freezed.dart';
-part 'photo_dao.g.dart';
+part 'photo_dto.freezed.dart';
+part 'photo_dto.g.dart';
 
 
 @freezed
-class PhotoDao with _$PhotoDao {
-  const factory PhotoDao({
+class PhotoDto with _$PhotoDto {
+  const factory PhotoDto({
     required String id,
     required String owner,
     required String secret,
@@ -16,8 +16,8 @@ class PhotoDao with _$PhotoDao {
     required String ispublic,
     required String isfriend,
     required String isfamily,
-  }) = _PhotoDao;
+  }) = _PhotoDto;
 
-  factory PhotoDao.fromJson(Map<String, dynamic> json) =>
-      _$PhotoDaoFromJson(json);
+  factory PhotoDto.fromJson(Map<String, dynamic> json) =>
+      _$PhotoDtoFromJson(json);
 }
