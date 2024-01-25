@@ -1,10 +1,23 @@
 import 'package:communere/app/network/network_enums.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:xml2json/xml2json.dart';
 
 
 
 class NetworkClient {
+
+/*  final myTransformer = Xml2Json();
+
+  String responseHandler(final HttpResponseType responseType,String httpReceivedResponse){
+
+      if(responseType==HttpResponseType.REST)
+        {
+          myTransformer.parse(httpReceivedResponse);
+          return myTransformer.toGData();
+        }
+      return httpReceivedResponse;
+  }*/
 
 
   Future<http.Response> sendRequest(

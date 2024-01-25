@@ -1,6 +1,6 @@
-import 'package:communere/app/base/api_result.dart';
+import '../../app/base/api_result.dart';
 
-abstract interface class PhotosService{
+abstract  class PhotosDataSource{
 
   Future<ApiResult<String>> getRecentPhotos();
   Future<ApiResult<String>> searchPhotos();
