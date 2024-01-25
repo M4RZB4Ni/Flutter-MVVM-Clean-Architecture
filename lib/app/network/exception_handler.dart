@@ -1,5 +1,4 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'exception_handler.freezed.dart';
 
