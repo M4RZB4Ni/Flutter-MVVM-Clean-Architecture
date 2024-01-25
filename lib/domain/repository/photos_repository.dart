@@ -4,6 +4,6 @@ import '../../app/base/api_result.dart';
 import '../entities/photo/photo.dart';
 
 abstract class PhotosRepository{
-  Future<ApiResult<List<Photo>>> getRecentPhotos();
-  Future<ApiResult<List<Photo>>> searchPhotos({required SearchCriteria searchCriteria});
+  Future<ApiResult<Photos>> getRecentPhotos();
+  Future<ApiResult<Photos>> searchPhotos({required SearchCriteria searchCriteria});
 }

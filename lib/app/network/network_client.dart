@@ -1,8 +1,8 @@
 import 'package:communere/app/base/api_result.dart';
 import 'package:communere/app/network/exception_handler.dart';
 import 'package:communere/app/network/network_enums.dart';
+import 'package:communere/app/network/response.dart';
 import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
 import 'dart:convert';
 
 import 'package:xml2json/xml2json.dart';
@@ -15,26 +15,26 @@ class NetworkClient {
 
 
 
-  ApiResult _responseHandler(final HttpResponseType responseType,Response response){
+  Response _responseHandler(final HttpResponseType responseType,http.Response response){
 
       if(response.statusCode<300 && response.statusCode>=200)
         {
           switch(responseType)
               {
             case HttpResponseType.REST:
-              _myTransformer.parse(response.body);
-              return ApiResult.success(data: _myTransformer.toGData());
+              _myTransformer.parse(response.body.toString());
+              return Response(status: true, result: _myTransformer.toGData(), statusCode: response.statusCode);
 
             case HttpResponseType.XML:
-              return ApiResult.success(data: response.body);
+              return Response(status: true, result: response.body, statusCode: response.statusCode);
           }
         }else{
-        return ApiResult.failure(error: ExceptionHandler.handleResponse(response.statusCode));
+          return Response(status: false, result: response.body, statusCode: response.statusCode);
       }
   }
 
 
-  Future<ApiResult> sendRequest(
+  Future<Response> sendRequest(
       final String url,
       {
         required final HttpRequestType requestType,
@@ -56,6 +56,7 @@ class NetworkClient {
       case HttpRequestType.POST:
         response = await http.post(Uri.parse(url),
             body: json.encode(bodyData), headers: requestHeader);
+
         return  _responseHandler(responseType, response);
 
       case HttpRequestType.GET:

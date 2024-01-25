@@ -12,16 +12,18 @@ class PhotoRepositoryImpl extends PhotosRepository{
   PhotoRepositoryImpl({required this.remoteDataSource});
 
   @override
-  Future<ApiResult<List<Photo>>> getRecentPhotos() {
+  Future<ApiResult<Photos>> getRecentPhotos() {
     // TODO: implement getRecentPhotos
     throw UnimplementedError();
   }
 
   @override
-  Future<ApiResult<List<Photo>>> searchPhotos({required SearchCriteria searchCriteria}) {
+  Future<ApiResult<Photos>> searchPhotos({required SearchCriteria searchCriteria}) {
     // TODO: implement searchPhotos
     throw UnimplementedError();
   }
+
+
 
 
 

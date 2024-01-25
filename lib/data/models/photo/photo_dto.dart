@@ -1,7 +1,30 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+
 part 'photo_dto.freezed.dart';
 part 'photo_dto.g.dart';
+
+
+@freezed
+class PhotoResultDto with _$PhotoResultDto {
+  factory PhotoResultDto({
+    required final PhotosDto photos,
+  }) = _PhotoResultDto;
+
+  factory PhotoResultDto.fromJson(Map<String, dynamic> json) =>
+      _$PhotoResultDtoFromJson(json);
+
+}
+
+@freezed
+class PhotosDto with _$PhotosDto {
+  const factory PhotosDto({
+    required List<PhotoDto> photo,
+  }) = _PhotosDto;
+
+  factory PhotosDto.fromJson(Map<String, dynamic> json) =>
+      _$PhotosDtoFromJson(json);
+}
 
 
 @freezed

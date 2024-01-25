@@ -1,3 +1,5 @@
+
+import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'exception_handler.freezed.dart';
 
@@ -251,49 +253,15 @@ class ExceptionHandler with _$ExceptionHandler {
   }
 
 
-/*
-  factory ExceptionHandler.getException(final HttpException error,
-      {required dynamic stackTrace}) {
-    debugPrint('low level error--> ${error.message}');
-    // try {
-    //
-    //   if (error is OperationException) {
-    //     if (error.graphqlErrors.isNotEmpty &&
-    //         error.graphqlErrors[0].extensions!['code'].toString() == '401') {
-    //       final message = error.graphqlErrors[0].message
-    //           .replaceAll('GraphQL.ExecutionError: ', '');
-    //       ExceptionHandler = ExceptionHandler.unauthorizedRequest(message);
-    //     } else if (error.graphqlErrors.isNotEmpty &&
-    //         error.graphqlErrors[0].message.isNotEmpty) {
-    //       final message = error.graphqlErrors[0].message
-    //           .replaceAll('GraphQL.ExecutionError: ', '');
-    //       ExceptionHandler = ExceptionHandler.unauthorizedRequest(message);
-    //     } else {
-    //       final SocketException sockerErr =
-    //           error.linkException!.originalException;
-    //
-    //       if (error.linkException != null) {
-    //         if (error.linkException!.originalException != null &&
-    //             sockerErr.osError!.message.isNotEmpty) {
-    //           ExceptionHandler = ExceptionHandler.defaultError(
-    //             sockerErr.osError!.message,
-    //           );
-    //         }
-    //       }
-    //     }
-    //   }
-
-
-    return ExceptionHandler!;
-    // } on FormatException catch (e) {
-    //   realDebugPrint(e.toString());
-    //
-    //   return const ExceptionHandler.formatException();
-    // } catch (_) {
-    //   return const ExceptionHandler.unexpectedError();
-    // }
-  }
-*/
+  // factory ExceptionHandler.getException(final Exception error,
+  //     {required dynamic stackTrace}) {
+  //   debugPrint('low level error--> ${error}');
+  //
+  //
+  //
+  //
+  //
+  // }
 
 
 

@@ -5,7 +5,7 @@ import '../entities/search/search_criteria.dart';
 
 abstract class PhotosDataSource{
 
-  Future<ApiResult<List<Photo>>> getRecentPhotos();
-  Future<ApiResult<List<Photo>>> searchPhotos({required SearchCriteria searchCriteria});
+  Future<ApiResult<Photos>> getRecentPhotos();
+  Future<ApiResult<Photos>> searchPhotos({required SearchCriteria searchCriteria});
 
 }
