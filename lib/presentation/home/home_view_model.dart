@@ -19,28 +19,14 @@ class HomeViewModel extends BaseController {
 
   TextEditingController get searchController => _searchController;
 
-
-
   @override
   void onInit() async {
     super.onInit();
-    await getImages();
-  }
-
-  Future<void> getImages() async {
-    final result =
-        await _photoUseCase.searchPhotos(const SearchCriteria(text: "red"));
-    result.when(
-      success: (data) {
-        debugPrint("data fetched from getRecentPhotos $data");
-      },
-      failure: (error) {},
-    );
+    await getRecentPhotos();
   }
 
   Future<void> getRecentPhotos() async {
-    final result =
-    await _photoUseCase.getRecentPhotos();
+    final result = await _photoUseCase.getRecentPhotos();
     result.when(
       success: (data) {
         _isLoading.value = false;
@@ -64,5 +50,23 @@ class HomeViewModel extends BaseController {
         _isLoading.value = true;
       },
     );
+  }
+
+  void clearSearchBox() {
+    FocusManager.instance.primaryFocus?.unfocus();
+    if (_searchController.text.isNotEmpty && _isLoading.isFalse) {
+      _isLoading.value = true;
+      _searchController.clear();
+      getRecentPhotos();
+    }
+  }
+
+  void searchButtonHandler(String value) {
+    _isLoading.value = true;
+    if (value.isEmpty) {
+      getRecentPhotos(); // Fetch recent photos if search criteria is empty
+    } else {
+      searchPhotos(value);
+    }
   }
 }
