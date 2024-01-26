@@ -1,8 +1,8 @@
-# Communere
+# Image Handler based On Flicker's API and Flutter leverage on MVVM and Clean Architecture for Mobile
 
 ## Overview
-Communere is a Flutter project developed as a technical test by Hamidreza Marzbani. The project focuses on [Using Flicker's API to fetch recent images and search
-between Flicker's images].
+This is a Flutter project developed as a technical test by **Hamidreza Marzbani**. The project focuses on **Using Flicker's API to fetch recent images and search
+between Flicker's images**.
 
 ## Table of Contents
 - [Architecture](#architecture)
@@ -15,7 +15,12 @@ between Flicker's images].
 
 ## Architecture
 
-[The Project is Based on MVVM and Clean-Architecture with consideration of SOLID principles which Includes four Module: 1-App 2-Data 3-Domain 4-Presentation]
+The Project is Based on MVVM and Clean-Architecture with consideration of SOLID principles which Includes four Module:
+
+1. App: is responsible for infrastructure of the project include network handlers and exception handlers and base files.
+2. Data: The data layer serves as a bridge between the domain layer and the presentation layer, supplying data through implementations of data sources, repositories, and models.
+3. Domain: The domain layer encapsulates the core business logic and rules, acting as an intermediary between the data layer and presentation layer to ensure separation of concerns and maintain a clean, business-centric architecture.  
+4. Presentation: The presentation layer manages user interfaces and interactions, focusing on the visual representation of data and user experience. It relies on the domain layer for business logic and the data layer for data retrieval, fostering a clear separation of concerns in the application architecture.
 
 ## Technologies and Libraries Used
 
