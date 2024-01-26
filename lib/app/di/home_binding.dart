@@ -22,5 +22,7 @@ class HomeBinding extends Bindings {
     Get.lazyPut<PhotosDataSource>(
         () => PhotosRemoteDataSource(Get.find<NetworkClient>()),
         fenix: true);
+
+
   }
 }

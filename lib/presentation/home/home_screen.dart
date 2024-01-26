@@ -1,4 +1,5 @@
 import 'package:communere/app/base/base_view.dart';
+import 'package:communere/app/resources/app_text.dart';
 import 'package:communere/presentation/components/photo_list.dart';
 import 'package:communere/presentation/components/skeleton_list.dart';
 import 'package:communere/presentation/home/home_view_model.dart';
@@ -17,7 +18,7 @@ class HomeScreen extends BaseView<HomeViewModel> {
         controller: controller.searchController,
         onSubmitted: (value) => controller.searchButtonHandler(value),
         decoration: InputDecoration(
-          hintText: 'Search...',
+          hintText: AppText.search,
           suffixIcon: IconButton(
             icon: const Icon(Icons.clear),
             onPressed: () => controller.clearSearchBox(),
