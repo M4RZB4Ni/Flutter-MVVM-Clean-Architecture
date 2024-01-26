@@ -26,27 +26,25 @@ The Project is Based on MVVM and Clean-Architecture with consideration of SOLID 
 
 - **Flutter**: Flutter is a UI toolkit that enables the creation of natively compiled applications for mobile, web, and desktop from a single codebase.
 
-- **Cached Network Image**: A Flutter library to load and cache network images.
+- **[Cached Network Image](https://pub.dev/packages/cached_network_image)**: A Flutter library to load and cache network images.
 
-- **Flutter Dotenv**: A library for loading environment variables from a .env file.
+- **[Flutter Dotenv](https://pub.dev/packages/flutter_dotenv)**: A library for loading environment variables from a .env file.
 
-- **Freezed and Freezed Annotation**: A code generation package for unions/pattern-matching/copy/toString/equals/hashCode.
+- **[Freezed](https://pub.dev/packages/freezed) and [Freezed Annotation](https://pub.dev/packages/freezed_annotation)**: A code generation package for unions/pattern-matching/copy/toString/equals/hashCode.
 
-- **Flutter Screenutil**: A Flutter plugin to provide a simple way to set the width and height of widgets based on screen size.
+- **[Flutter Screenutil](https://pub.dev/packages/flutter_screenutil)**: A Flutter plugin to provide a simple way to set the width and height of widgets based on screen size.
 
-- **Get**: A state management library for Flutter.
+- **[Get](https://pub.dev/packages/get)**: A state management, Dependency Injection library for Flutter.
 
-- **Internet Connection Checker**: A library to check the internet connection status in a Flutter app.
+- **[Internet Connection Checker](https://pub.dev/packages/internet_connection_checker)**: A library to check the internet connection status in a Flutter app.
 
-- **Json Annotation and Json Serializable**: Packages for converting Dart objects to and from JSON.
+- **[Json Annotation](https://pub.dev/packages/json_annotation) and [Json Serializable](https://pub.dev/packages/json_serializable)**: Packages for converting Dart objects to and from JSON.
 
-- **HTTP**: A package for making HTTP requests.
+- **[HTTP](https://pub.dev/packages/http)**: Flutter main package for making HTTP requests.
 
-- **Infinite Scroll Pagination**: A package to implement infinite scroll pagination in Flutter.
+- **[Lottie](https://pub.dev/packages/lottie)**: A Flutter package for smoothly displaying Lottie animations.
 
-- **Lottie**: A Flutter package for smoothly displaying Lottie animations.
-
-- **Xml2json**: A package for converting XML to JSON in Flutter.
+- **[Xml2json](https://pub.dev/packages/xml2json)**: A package for converting XML to JSON in Flutter.
 
 ## Getting Started
 
