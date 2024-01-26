@@ -1,4 +1,4 @@
-# Image Handler based On Flicker's API and Flutter leverage on MVVM and Clean Architecture for Mobile
+# The Simple Flicker App - Flutter
 
 ## Overview
 This is a Flutter project developed as a technical test by **Hamidreza Marzbani**. The project focuses on **Using Flicker's API to fetch recent images and search
