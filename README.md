@@ -64,12 +64,18 @@ The Project is Based on MVVM and Clean-Architecture with consideration of SOLID 
 ### Running the Project
 
 
-1. Clone the repository:
+1. Update the pub:
 
    ```bash
-   Flutter pub get
-2. ``` dart run build_runner build --delete-conflicting-outputs
-3. ``` Run the project on your device
+   flutter pub get
+2. Build models with [Freezed](https://pub.dev/packages/freezed):
+
+   ```bash
+   dart run build_runner build --delete-conflicting-outputs  
+3. Build the apk:
+
+   ```bash
+   flutter build apk
 
 ### Author
 
