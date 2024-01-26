@@ -20,7 +20,8 @@ class PhotosRepositoryImpl extends PhotosRepository {
   }
 
   @override
-  Future<ApiResult<Photos>> searchPhotos({required SearchCriteria searchCriteria}) async {
+  Future<ApiResult<Photos>> searchPhotos(
+      {required SearchCriteria searchCriteria}) async {
     // Delegate the call to the data source to search for photos.
     return await _dataSource.searchPhotos(searchCriteria: searchCriteria);
   }

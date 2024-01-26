@@ -13,17 +13,17 @@ part 'photo.g.dart';
 class Photos with _$Photos {
   // Factory constructor for Photos data class.
   const factory Photos({
-    required final List<Photo> photo,  // List of Photo objects.
+    required final List<Photo> photo, // List of Photo objects.
   }) = _Photos;
 
   // Factory method to deserialize a JSON map into a Photos object.
-  factory Photos.fromJson(Map<String, dynamic> json) =>
-      _$PhotosFromJson(json);
+  factory Photos.fromJson(Map<String, dynamic> json) => _$PhotosFromJson(json);
 
   // Factory method to convert a PhotosDto object into a Photos object.
   factory Photos.fromDto(PhotosDto photosDto) {
     return Photos(
-      photo: photosDto.photo.map((photoDto) => Photo.fromDto(photoDto)).toList(),
+      photo:
+          photosDto.photo.map((photoDto) => Photo.fromDto(photoDto)).toList(),
     );
   }
 }
@@ -39,8 +39,7 @@ class Photo with _$Photo {
   }) = _Photo;
 
   // Factory method to deserialize a JSON map into a Photo object.
-  factory Photo.fromJson(Map<String, dynamic> json) =>
-      _$PhotoFromJson(json);
+  factory Photo.fromJson(Map<String, dynamic> json) => _$PhotoFromJson(json);
 
   // Factory method to convert a PhotoDto object into a Photo object.
   factory Photo.fromDto(PhotoDto photoDto) {

@@ -9,7 +9,8 @@ part 'photo_dto.g.dart';
 class PhotoResultDto with _$PhotoResultDto {
   // Factory constructor for a PhotoResultDto.
   factory PhotoResultDto({
-    required final PhotosDto photos,  // PhotosDto object containing a list of PhotoDto.
+    required final PhotosDto
+        photos, // PhotosDto object containing a list of PhotoDto.
   }) = _PhotoResultDto;
 
   // Factory method to deserialize a JSON map into a PhotoResultDto object.
@@ -21,8 +22,7 @@ class PhotoResultDto with _$PhotoResultDto {
 class PhotosDto with _$PhotosDto {
   // Immutable data class for a list of PhotoDto.
   const factory PhotosDto({
-    @Default(<PhotoDto>[])
-    List<PhotoDto> photo,  // List of PhotoDto objects.
+    @Default(<PhotoDto>[]) List<PhotoDto> photo, // List of PhotoDto objects.
   }) = _PhotosDto;
 
   // Factory method to deserialize a JSON map into a PhotosDto object.

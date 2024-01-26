@@ -10,7 +10,7 @@ part 'search_criteria.g.dart';
 class SearchCriteria with _$SearchCriteria {
   // Factory constructor for SearchCriteria data class.
   const factory SearchCriteria({
-    required String text,  // Required text for search criteria.
+    required String text, // Required text for search criteria.
   }) = _SearchCriteria;
 
   // Factory method to deserialize a JSON map into a SearchCriteria object.

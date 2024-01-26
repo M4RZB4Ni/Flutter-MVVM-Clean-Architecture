@@ -57,7 +57,7 @@ class HomeViewModel extends BaseController {
   // Method to search for photos using the PhotoUseCase and a search criteria.
   Future<void> searchPhotos(String searchCriteria) async {
     final result =
-    await _photoUseCase.searchPhotos(SearchCriteria(text: searchCriteria));
+        await _photoUseCase.searchPhotos(SearchCriteria(text: searchCriteria));
     result.when(
       success: (data) {
         _isLoading.value = false;

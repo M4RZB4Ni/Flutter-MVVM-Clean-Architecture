@@ -23,22 +23,20 @@ abstract class BaseController extends GetxController {
   void onInit() {
     _connectionListener =
         InternetConnectionChecker().onStatusChange.listen((final status) {
-          switch (status) {
-            case InternetConnectionStatus.connected:
-              updatePageState(const ResultState.idle());
-              break;
-            case InternetConnectionStatus.disconnected:
-              updatePageState(const ResultState.lostConnection());
-              break;
-          }
-        });
+      switch (status) {
+        case InternetConnectionStatus.connected:
+          updatePageState(const ResultState.idle());
+          break;
+        case InternetConnectionStatus.disconnected:
+          updatePageState(const ResultState.lostConnection());
+          break;
+      }
+    });
     super.onInit();
   }
 
   @override
   void dispose() {
-
-
     _connectionListener.cancel();
     super.dispose();
   }

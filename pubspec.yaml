@@ -40,6 +40,7 @@ dependencies:
   infinite_scroll_pagination: ^4.0.0
   lottie: ^3.0.0
   xml2json: ^6.2.2
+  liquid_pull_to_refresh: ^3.0.1
 
   flutter:
     sdk: flutter

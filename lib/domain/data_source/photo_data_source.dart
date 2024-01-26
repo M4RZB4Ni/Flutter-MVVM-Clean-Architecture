@@ -11,5 +11,6 @@ abstract class PhotosDataSource {
   Future<ApiResult<Photos>> getRecentPhotos();
 
   // Method to search for photos based on search criteria.
-  Future<ApiResult<Photos>> searchPhotos({required SearchCriteria searchCriteria});
+  Future<ApiResult<Photos>> searchPhotos(
+      {required SearchCriteria searchCriteria});
 }

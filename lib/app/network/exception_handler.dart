@@ -1,4 +1,3 @@
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'exception_handler.freezed.dart';
 
@@ -7,10 +6,10 @@ class ExceptionHandler with _$ExceptionHandler {
   const factory ExceptionHandler.requestCancelled() = RequestCancelled;
 
   const factory ExceptionHandler.unauthorizedRequest(final String message) =
-  UnauthorizedRequest;
+      UnauthorizedRequest;
 
   const factory ExceptionHandler.socketIoError(final String message) =
-  SocketIoError;
+      SocketIoError;
 
   const factory ExceptionHandler.badRequest() = BadRequest;
 
@@ -47,7 +46,7 @@ class ExceptionHandler with _$ExceptionHandler {
   const factory ExceptionHandler.unableToProcess() = UnableToProcess;
 
   const factory ExceptionHandler.defaultError(final String error) =
-  DefaultError;
+      DefaultError;
 
   const factory ExceptionHandler.unexpectedError() = UnexpectedError;
 
@@ -76,12 +75,10 @@ class ExceptionHandler with _$ExceptionHandler {
   const factory ExceptionHandler.preConditionError() = UserRegisterBefore;
 
   static String getErrorMessage(
-      final ExceptionHandler exceptionHandler, {
-        final bool showInLog = true,
-        final dynamic stackTrace,
-      }) {
-
-
+    final ExceptionHandler exceptionHandler, {
+    final bool showInLog = true,
+    final dynamic stackTrace,
+  }) {
     var errorMessage = '';
     exceptionHandler.when(
       notImplemented: () {
@@ -158,7 +155,7 @@ class ExceptionHandler with _$ExceptionHandler {
       },
       emailAlreadyExists: () {
         errorMessage =
-        'The email has already been registered. Please login or reset your password.';
+            'The email has already been registered. Please login or reset your password.';
       },
       tooManyRequests: () {
         errorMessage = 'Too many requests. Try again later.';
@@ -186,7 +183,7 @@ class ExceptionHandler with _$ExceptionHandler {
       },
       preConditionError: () {
         errorMessage =
-        'This phone number already has been registered, Please try again.';
+            'This phone number already has been registered, Please try again.';
       },
     );
 
@@ -196,61 +193,42 @@ class ExceptionHandler with _$ExceptionHandler {
   factory ExceptionHandler.handleResponse(final int error, {stackTrace}) {
     switch (error) {
       case 400:
-
-
         return const ExceptionHandler.badRequest();
 
       case 401:
-
-        return const ExceptionHandler.unauthorizedRequest(
-            'Please Check Token');
+        return const ExceptionHandler.unauthorizedRequest('Please Check Token');
       case 403:
-
-
         return const ExceptionHandler.forbidden();
       case 404:
-
         return const ExceptionHandler.notFound(
             'Route Not found, Check your address');
       case 405:
-
         return const ExceptionHandler.methodNotAllowed();
       case 409:
-
         return const ExceptionHandler.conflict();
       case 408:
-
         return const ExceptionHandler.requestTimeout();
       case 412:
-
         return const ExceptionHandler.preConditionError();
       case 500:
-
         return const ExceptionHandler.internalServerError();
       case 501:
-
         return const ExceptionHandler.notImplemented();
       case 502:
-
         return const ExceptionHandler.badGateway();
       case 503:
-
         return const ExceptionHandler.serviceUnavailable();
       case 504:
-
         return const ExceptionHandler.gatewayTimeout();
       case 511:
-
         return const ExceptionHandler.networkAuthRequired();
       default:
-
         return const ExceptionHandler.unexpectedError();
-    // return ExceptionHandler.defaultError(
-    //   'Received invalid status code: $responseCode',
-    // );
+      // return ExceptionHandler.defaultError(
+      //   'Received invalid status code: $responseCode',
+      // );
     }
   }
-
 
   // factory ExceptionHandler.getException(final Exception error,
   //     {required dynamic stackTrace}) {
@@ -261,7 +239,4 @@ class ExceptionHandler with _$ExceptionHandler {
   //
   //
   // }
-
-
-
 }

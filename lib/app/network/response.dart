@@ -9,11 +9,12 @@ part 'response.g.dart';
 class Response with _$Response {
   // Factory constructor for a response object.
   const factory Response({
-    required bool status,         // Indicates the success or failure of the response.
-    required dynamic result,      // Holds the result data of the response.
-    required int statusCode,      // Represents the HTTP status code of the response.
+    required bool status, // Indicates the success or failure of the response.
+    required dynamic result, // Holds the result data of the response.
+    required int statusCode, // Represents the HTTP status code of the response.
   }) = _Response;
 
   // Factory method to deserialize a JSON map into a Response object.
-  factory Response.fromJson(Map<String, dynamic> json) => _$ResponseFromJson(json);
+  factory Response.fromJson(Map<String, dynamic> json) =>
+      _$ResponseFromJson(json);
 }

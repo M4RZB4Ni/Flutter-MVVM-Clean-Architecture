@@ -4,12 +4,10 @@ import 'package:get/get_instance/get_instance.dart';
 
 import 'home_binding.dart';
 
-class MainBinding implements Bindings{
+class MainBinding implements Bindings {
   @override
   void dependencies() {
     HomeBinding().dependencies();
-    Get.lazyPut<NetworkClient>(NetworkClient.new ,fenix:true);
-
+    Get.lazyPut<NetworkClient>(NetworkClient.new, fenix: true);
   }
-
 }

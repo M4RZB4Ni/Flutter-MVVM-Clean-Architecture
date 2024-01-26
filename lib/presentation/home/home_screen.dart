@@ -7,6 +7,7 @@ import 'package:communere/presentation/components/skeleton_list.dart';
 import 'package:communere/presentation/home/home_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:lottie/lottie.dart';
 
 // HomeScreen widget, extending BaseView and associated with HomeViewModel.
@@ -40,12 +41,16 @@ class HomeScreen extends BaseView<HomeViewModel> {
   @override
   Widget body(BuildContext context) {
     return Obx(
-          () {
+      () {
         // Display either a skeleton list or the actual PhotoList based on loading state.
         if (controller.isLoading.isTrue) {
           return const SkeletonList();
         } else {
-          return PhotoList(photos: controller.photos.value);
+          return LiquidPullToRefresh(
+              height: 50,
+              showChildOpacityTransition: false,
+              onRefresh: () => controller.getRecentPhotos(),
+              child: PhotoList(photos: controller.photos.value));
         }
       },
     );

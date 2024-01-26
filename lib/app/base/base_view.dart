@@ -38,64 +38,65 @@ abstract class BaseView<Controller extends BaseController>
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Obx(
-            () => controller.pageState.when(
+        () => controller.pageState.when(
           idle: () => annotatedRegion(context),
           loading: () => _showLoading(),
           data: (final data) => annotatedRegion(context),
-          lostConnection:(widget) => noInternet(),
-          error: (ExceptionHandler error) { return "Error in Load Data".toWidget(); },
+          lostConnection: (widget) => noInternet(),
+          error: (ExceptionHandler error) {
+            return "Error in Load Data".toWidget();
+          },
         ),
       ),
     );
   }
 
-  Widget noInternetWidget ()=> const Placeholder();
+  Widget noInternetWidget() => const Placeholder();
 
-  Widget noInternet()
-  {
-    return  Scaffold(
+  Widget noInternet() {
+    return Scaffold(
         backgroundColor: pageBackgroundColor(),
         body: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        noInternetWidget(),
-        const SizedBox(height: 16),
-        const Text(
-          "Oops! No Internet Connection",
-          style: TextStyle(fontSize: 16),
-        ),
-      ],
-    ));
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            noInternetWidget(),
+            const SizedBox(height: 16),
+            const Text(
+              "Oops! No Internet Connection",
+              style: TextStyle(fontSize: 16),
+            ),
+          ],
+        ));
   }
 
   Widget annotatedRegion(final BuildContext context) => AnnotatedRegion(
-    value: SystemUiOverlayStyle(
-      //Status bar color for android
-      statusBarColor: statusBarColor(),
-      statusBarIconBrightness: Brightness.light,
-    ),
-    child: pageContent(context),
-  );
+        value: SystemUiOverlayStyle(
+          //Status bar color for android
+          statusBarColor: statusBarColor(),
+          statusBarIconBrightness: Brightness.light,
+        ),
+        child: pageContent(context),
+      );
 
   Widget pageScaffold(final BuildContext context) => PopScope(
-    canPop: false,
-    child: Scaffold(
-      //sets ios status bar color
-      backgroundColor: pageBackgroundColor(),
-      appBar: appBar(context),
-      floatingActionButton: floatingActionButton(),
-      floatingActionButtonLocation: floatingActionButtonLocation(),
-      body: body(context),
-      bottomNavigationBar: bottomNavigationBar(context),
-      drawer: drawer(),
-      resizeToAvoidBottomInset: resizeToAvoidBottomInset(),
-    ),
-  );
+        canPop: false,
+        child: Scaffold(
+          //sets ios status bar color
+          backgroundColor: pageBackgroundColor(),
+          appBar: appBar(context),
+          floatingActionButton: floatingActionButton(),
+          floatingActionButtonLocation: floatingActionButtonLocation(),
+          body: body(context),
+          bottomNavigationBar: bottomNavigationBar(context),
+          drawer: drawer(),
+          resizeToAvoidBottomInset: resizeToAvoidBottomInset(),
+        ),
+      );
 
   Widget pageContent(final BuildContext context) => safeArea()
       ? SafeArea(
-    child: pageScaffold(context),
-  )
+          child: pageScaffold(context),
+        )
       : pageScaffold(context);
 
   Widget showErrorSnackBar(final String message) {
@@ -120,14 +121,14 @@ abstract class BaseView<Controller extends BaseController>
   Widget? drawer() => null;
 
   Widget _showLoading() => Center(
-    child: Container(
-      color: Colors.transparent,
-      margin: AppSpacing.s30All,
-      child: CupertinoActivityIndicator(
-        radius:30.toReactive(),
-      ),
-    ),
-  );
+        child: Container(
+          color: Colors.transparent,
+          margin: AppSpacing.s30All,
+          child: CupertinoActivityIndicator(
+            radius: 30.toReactive(),
+          ),
+        ),
+      );
 
   FloatingActionButtonLocation? floatingActionButtonLocation() =>
       FloatingActionButtonLocation.endFloat;

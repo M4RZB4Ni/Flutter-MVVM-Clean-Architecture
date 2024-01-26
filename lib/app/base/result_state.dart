@@ -9,7 +9,8 @@ class ResultState<T> with _$ResultState<T> {
 
   const factory ResultState.loading() = Loading<T>;
 
-  const factory ResultState.lostConnection({final T? widget}) = LostConnection<T>;
+  const factory ResultState.lostConnection({final T? widget}) =
+      LostConnection<T>;
 
   const factory ResultState.data({required final T data}) = Data<T>;
 
