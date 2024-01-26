@@ -17,18 +17,22 @@ class PhotosRemoteDataSource extends PhotosDataSource {
 
   @override
   Future<ApiResult<Photos>> getRecentPhotos() async {
-    final response = await _networkClient.sendRequest(
-        "${dotenv.env['SERVER']}?method=flickr.photos.getRecent&api_key=${dotenv.env['API_KEY']}",
-        requestType: HttpRequestType.GET);
+    try {
+      final response = await _networkClient.sendRequest(
+          "${dotenv.env['SERVER']}?method=flickr.photos.getRecent&api_key=${dotenv.env['API_KEY']}",
+          requestType: HttpRequestType.GET);
 
-    if (response.status) {
-      debugPrint('result ${response.result}');
-      final photoResultDto = PhotoResultDto.fromJson(response.result);
-      return ApiResult.success(data: Photos.fromDto(photoResultDto.photos));
+      if (response.status) {
+        debugPrint('result ${response.result}');
+        final photoResultDto = PhotoResultDto.fromJson(response.result);
+        return ApiResult.success(data: Photos.fromDto(photoResultDto.photos));
+      }
+
+      return ApiResult.failure(
+          error: ExceptionHandler.handleResponse(response.statusCode));
+    } on ExceptionHandler catch (e) {
+      return ApiResult.failure(error: e);
     }
-
-    return ApiResult.failure(
-        error: ExceptionHandler.handleResponse(response.statusCode));
   }
 
   @override

@@ -6,7 +6,6 @@ import 'package:communere/app/resources/app_spacing.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
@@ -36,18 +35,37 @@ abstract class BaseView<Controller extends BaseController>
   Widget build(final BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // FocusScope.of(context).requestFocus(FocusNode());
+        FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Obx(
             () => controller.pageState.when(
           idle: () => annotatedRegion(context),
           loading: () => _showLoading(),
           data: (final data) => annotatedRegion(context),
-          lostConnection: () => annotatedRegion(context),
+          lostConnection:(widget) => noInternet(),
           error: (ExceptionHandler error) { return "Error in Load Data".toWidget(); },
         ),
       ),
     );
+  }
+
+  Widget noInternetWidget ()=> const Placeholder();
+
+  Widget noInternet()
+  {
+    return  Scaffold(
+        backgroundColor: pageBackgroundColor(),
+        body: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        noInternetWidget(),
+        const SizedBox(height: 16),
+        const Text(
+          "Oops! No Internet Connection",
+          style: TextStyle(fontSize: 16),
+        ),
+      ],
+    ));
   }
 
   Widget annotatedRegion(final BuildContext context) => AnnotatedRegion(

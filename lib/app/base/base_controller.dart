@@ -19,23 +19,19 @@ abstract class BaseController extends GetxController {
   // ResultState errorPageState(final ExceptionHandler e) => updatePageState( ResultState.error(error: e));
 
   ResultState hideLoading() => resetPageState();
-
   @override
   void onInit() {
-
-
-    // _connectionListener =
-    //     InternetConnectionChecker().onStatusChange.listen((final status) {
-    //       //realDebugPrint('status of override-->$status');
-    //       switch (status) {
-    //         case InternetConnectionStatus.connected:
-    //           updatePageState(const ResultState.idle());
-    //           break;
-    //         case InternetConnectionStatus.disconnected:
-    //           updatePageState(const ResultState.lostConnection());
-    //           break;
-    //       }
-    //     });
+    _connectionListener =
+        InternetConnectionChecker().onStatusChange.listen((final status) {
+          switch (status) {
+            case InternetConnectionStatus.connected:
+              updatePageState(const ResultState.idle());
+              break;
+            case InternetConnectionStatus.disconnected:
+              updatePageState(const ResultState.lostConnection());
+              break;
+          }
+        });
     super.onInit();
   }
 
