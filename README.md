@@ -63,7 +63,11 @@ The Project is Based on MVVM and Clean-Architecture with consideration of SOLID 
 
 ### Running the Project
 
-1. ``` Flutter pub get
+
+1. Clone the repository:
+
+   ```bash
+   Flutter pub get
 2. ``` dart run build_runner build --delete-conflicting-outputs
 3. ``` Run the project on your device
 
