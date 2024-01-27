@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the ExceptionHandler.handleResponse constructor from Class ExceptionHandler from the exception_handler library, for the Dart programming language.">
+  <title>ExceptionHandler.handleResponse constructor - ExceptionHandler - exception_handler library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">communere</a></li>
+    <li><a href="../../app_network_exception_handler/app_network_exception_handler-library.html">exception_handler</a></li>
+    <li><a href="../../app_network_exception_handler/ExceptionHandler-class.html">ExceptionHandler</a></li>
+    <li class="self-crumb">ExceptionHandler.handleResponse factory constructor</li>
+  </ol>
+  <div class="self-name">ExceptionHandler.handleResponse</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        brightness_4
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        brightness_5
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="app_network_exception_handler&#47;ExceptionHandler-class-sidebar.html"
+      data-below-sidebar="">
+      <div>
+<h1><span class="kind-constructor">ExceptionHandler.handleResponse</span> constructor 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+      <span class="name ">ExceptionHandler.handleResponse</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="handleResponse-param-error"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">error</span>, </span></li>
+<li><span class="parameter" id="handleResponse-param-stackTrace">{<span class="type-annotation">dynamic</span> <span class="parameter-name">stackTrace</span>}</span></li>
+</ol>)
+    </section>
+
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">factory ExceptionHandler.handleResponse(final int error, {stackTrace}) {
+  switch (error) {
+    case 400:
+      return const ExceptionHandler.badRequest();
+
+    case 401:
+      return const ExceptionHandler.unauthorizedRequest(&#39;Please Check Token&#39;);
+    case 403:
+      return const ExceptionHandler.forbidden();
+    case 404:
+      return const ExceptionHandler.notFound(
+          &#39;Route Not found, Check your address&#39;);
+    case 405:
+      return const ExceptionHandler.methodNotAllowed();
+    case 409:
+      return const ExceptionHandler.conflict();
+    case 408:
+      return const ExceptionHandler.requestTimeout();
+    case 412:
+      return const ExceptionHandler.preConditionError();
+    case 500:
+      return const ExceptionHandler.internalServerError();
+    case 501:
+      return const ExceptionHandler.notImplemented();
+    case 502:
+      return const ExceptionHandler.badGateway();
+    case 503:
+      return const ExceptionHandler.serviceUnavailable();
+    case 504:
+      return const ExceptionHandler.gatewayTimeout();
+    case 511:
+      return const ExceptionHandler.networkAuthRequired();
+    default:
+      return const ExceptionHandler.unexpectedError();
+    &#47;&#47; return ExceptionHandler.defaultError(
+    &#47;&#47;   &#39;Received invalid status code: $responseCode&#39;,
+    &#47;&#47; );
+  }
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">communere</a></li>
+    <li><a href="../../app_network_exception_handler/app_network_exception_handler-library.html">exception_handler</a></li>
+    <li><a href="../../app_network_exception_handler/ExceptionHandler-class.html">ExceptionHandler</a></li>
+    <li class="self-crumb">ExceptionHandler.handleResponse factory constructor</li>
+</ol>
+
+
+    <h5>ExceptionHandler class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    communere
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

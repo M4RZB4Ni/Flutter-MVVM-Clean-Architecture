@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the getErrorMessage method from the ExceptionHandler class, for the Dart programming language.">
+  <title>getErrorMessage method - ExceptionHandler class - exception_handler library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">communere</a></li>
+    <li><a href="../../app_network_exception_handler/app_network_exception_handler-library.html">exception_handler</a></li>
+    <li><a href="../../app_network_exception_handler/ExceptionHandler-class.html">ExceptionHandler</a></li>
+    <li class="self-crumb">getErrorMessage static method</li>
+  </ol>
+  <div class="self-name">getErrorMessage</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        brightness_4
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        brightness_5
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="app_network_exception_handler&#47;ExceptionHandler-class-sidebar.html"
+      data-below-sidebar="">
+      <div>
+<h1><span class="kind-method">getErrorMessage</span> static method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+<span class="name ">getErrorMessage</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getErrorMessage-param-exceptionHandler"><span class="type-annotation"><a href="../../app_network_exception_handler/ExceptionHandler-class.html">ExceptionHandler</a></span> <span class="parameter-name">exceptionHandler</span>, </span></li>
+<li><span class="parameter" id="getErrorMessage-param-showInLog">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showInLog</span> = <span class="default-value">true</span>, </span></li>
+<li><span class="parameter" id="getErrorMessage-param-stackTrace"><span class="type-annotation">dynamic</span> <span class="parameter-name">stackTrace</span>}</span></li>
+</ol>)
+
+      
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">static String getErrorMessage(
+  final ExceptionHandler exceptionHandler, {
+  final bool showInLog = true,
+  final dynamic stackTrace,
+}) {
+  var errorMessage = &#39;&#39;;
+  exceptionHandler.when(
+    notImplemented: () {
+      errorMessage = &#39;Not Implemented&#39;;
+    },
+    requestCancelled: () {
+      errorMessage = &#39;Request Cancelled&#39;;
+    },
+    internalServerError: () {
+      errorMessage = &#39;Internal Server Error&#39;;
+    },
+    notFound: (final String reason) {
+      errorMessage = reason;
+    },
+    serviceUnavailable: () {
+      errorMessage = &#39;Service unavailable&#39;;
+    },
+    methodNotAllowed: () {
+      errorMessage = &#39;Method Allowed&#39;;
+    },
+    badRequest: () {
+      errorMessage = &#39;Bad request&#39;;
+    },
+    unauthorizedRequest: (final String message) {
+      errorMessage = message.isEmpty ? &#39;Unauthorized request&#39; : message;
+    },
+    unexpectedError: () {
+      errorMessage = &#39;Unexpected error occurred&#39;;
+    },
+    requestTimeout: () {
+      errorMessage = &#39;Connection request timeout&#39;;
+    },
+    noInternetConnection: () {
+      errorMessage = &#39;No internet connection&#39;;
+    },
+    conflict: () {
+      errorMessage = &#39;Error due to a conflict&#39;;
+    },
+    sendTimeout: () {
+      errorMessage = &#39;Send timeout in connection with API server&#39;;
+    },
+    unableToProcess: () {
+      errorMessage = &#39;Unable to process the data&#39;;
+    },
+    defaultError: (final String error) {
+      errorMessage = error;
+    },
+    formatException: () {
+      errorMessage = &#39;Unexpected error occurred&#39;;
+    },
+    notAcceptable: () {
+      errorMessage = &#39;Not acceptable&#39;;
+    },
+    socketIoError: (final String message) {
+      errorMessage = &#39;Socket Connection Error&#39;;
+    },
+    networkAuthRequired: () {
+      errorMessage = &#39;Unable to process the data&#39;;
+    },
+    badGateway: () {
+      errorMessage = &#39;Bad Gateway&#39;;
+    },
+    forbidden: () {
+      errorMessage = &#39;Forbidden access&#39;;
+    },
+    gatewayTimeout: () {
+      errorMessage = &#39;Forbidden&#39;;
+    },
+    operationNotAllowed: () {
+      errorMessage = &#39;Signing in with number and Password is not enabled.&#39;;
+    },
+    customTokenMismatch: () {
+      errorMessage = &#39;customTokenMismatch&#39;;
+    },
+    emailAlreadyExists: () {
+      errorMessage =
+          &#39;The email has already been registered. Please login or reset your password.&#39;;
+    },
+    tooManyRequests: () {
+      errorMessage = &#39;Too many requests. Try again later.&#39;;
+    },
+    wrongVerification: () {
+      errorMessage = &#39;Wrong code. Please try again.&#39;;
+    },
+    invalidCustomToken: () {
+      errorMessage = &#39;invalidCustomToken&#39;;
+    },
+    invalidEmail: () {
+      errorMessage = &#39;Your email address appears to be malformed.&#39;;
+    },
+    undefined: () {
+      errorMessage = &#39;An undefined Error happened.&#39;;
+    },
+    userNotFound: () {
+      errorMessage = &#39;Invalid phone number. Please try again.&#39;;
+    },
+    userDisabled: () {
+      errorMessage = &#39;User with this number has been disabled.&#39;;
+    },
+    wrongPassword: () {
+      errorMessage = &#39;Your password is wrong.&#39;;
+    },
+    preConditionError: () {
+      errorMessage =
+          &#39;This phone number already has been registered, Please try again.&#39;;
+    },
+  );
+
+  return errorMessage;
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">communere</a></li>
+    <li><a href="../../app_network_exception_handler/app_network_exception_handler-library.html">exception_handler</a></li>
+    <li><a href="../../app_network_exception_handler/ExceptionHandler-class.html">ExceptionHandler</a></li>
+    <li class="self-crumb">getErrorMessage static method</li>
+</ol>
+
+
+    <h5>ExceptionHandler class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    communere
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

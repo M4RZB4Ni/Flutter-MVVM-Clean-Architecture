@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="generator" content="made with love by dartdoc 7.0.1-wip">
+  <meta name="description" content="communere API docs, for the Dart programming language.">
+  <title>communere - Dart API docs</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="" data-using-base-href="false" class="light-theme">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li class="self-crumb">communere package</li>
+  </ol>
+  <div class="self-name">communere</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        brightness_4
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        brightness_5
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+
+  <div id="dartdoc-main-content" class="main-content">
+      
+<section class="desc markdown">
+  <h1 id="the-simple-flicker-app---flutter">The Simple Flicker App - Flutter</h1>
+<h2 id="overview">Overview</h2>
+<p>This is a Flutter project developed as a technical test by <strong>Hamidreza Marzbani</strong>. The project focuses on <strong>Using Flicker's API to fetch recent images and search
+between Flicker's images</strong>.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#architecture">Architecture</a></li>
+<li><a href="#technologies-and-libraries-used">Technologies and Libraries Used</a></li>
+<li><a href="#getting-started">Getting Started</a>
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#installation">Installation</a></li>
+</ul>
+</li>
+<li><a href="#running-the-project">Running the Project</a></li>
+<li><a href="#author">Author</a></li>
+</ul>
+<h2 id="architecture">Architecture</h2>
+<p>The Project is Based on MVVM and Clean-Architecture with consideration of SOLID principles which Includes four Module:</p>
+<ol>
+<li>App: is responsible for infrastructure of the project include network handlers and exception handlers and base files.</li>
+<li>Data: The data layer serves as a bridge between the domain layer and the presentation layer, supplying data through implementations of data sources, repositories, and models.</li>
+<li>Domain: The domain layer encapsulates the core business logic and rules, acting as an intermediary between the data layer and presentation layer to ensure separation of concerns and maintain a clean, business-centric architecture.</li>
+<li>Presentation: The presentation layer manages user interfaces and interactions, focusing on the visual representation of data and user experience. It relies on the domain layer for business logic and the data layer for data retrieval, fostering a clear separation of concerns in the application architecture.</li>
+</ol>
+<h2 id="technologies-and-libraries-used">Technologies and Libraries Used</h2>
+<ul>
+<li>
+<p><strong>Flutter</strong>: Flutter is a UI toolkit that enables the creation of natively compiled applications for mobile, web, and desktop from a single codebase.</p>
+</li>
+<li>
+<p><strong><a href="https://pub.dev/packages/cached_network_image">Cached Network Image</a></strong>: A Flutter library to load and cache network images.</p>
+</li>
+<li>
+<p><strong><a href="https://pub.dev/packages/flutter_dotenv">Flutter Dotenv</a></strong>: A library for loading environment variables from a .env file.</p>
+</li>
+<li>
+<p><strong><a href="https://pub.dev/packages/freezed">Freezed</a> and <a href="https://pub.dev/packages/freezed_annotation">Freezed Annotation</a></strong>: A code generation package for unions/pattern-matching/copy/toString/equals/hashCode.</p>
+</li>
+<li>
+<p><strong><a href="https://pub.dev/packages/flutter_screenutil">Flutter Screenutil</a></strong>: A Flutter plugin to provide a simple way to set the width and height of widgets based on screen size.</p>
+</li>
+<li>
+<p><strong><a href="https://pub.dev/packages/get">Get</a></strong>: A state management, Dependency Injection library for Flutter.</p>
+</li>
+<li>
+<p><strong><a href="https://pub.dev/packages/internet_connection_checker">Internet Connection Checker</a></strong>: A library to check the internet connection status in a Flutter app.</p>
+</li>
+<li>
+<p><strong><a href="https://pub.dev/packages/json_annotation">Json Annotation</a> and <a href="https://pub.dev/packages/json_serializable">Json Serializable</a></strong>: Packages for converting Dart objects to and from JSON.</p>
+</li>
+<li>
+<p><strong><a href="https://pub.dev/packages/http">HTTP</a></strong>: Flutter main package for making HTTP requests.</p>
+</li>
+<li>
+<p><strong><a href="https://pub.dev/packages/lottie">Lottie</a></strong>: A Flutter package for smoothly displaying Lottie animations.</p>
+</li>
+<li>
+<p><strong><a href="https://pub.dev/packages/xml2json">Xml2json</a></strong>: A package for converting XML to JSON in Flutter.</p>
+</li>
+</ul>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Ensure that you have Flutter and Dart installed on your machine. <a href="https://flutter.dev/docs/get-started/install">Flutter Installation Guide</a></li>
+</ul>
+<h3 id="installation">Installation</h3>
+<ol>
+<li>
+<p>Clone the repository:</p>
+<pre class="language-bash"><code class="language-bash">git clone https://github.com/m4rzb4ni/communere.git
+</code></pre>
+</li>
+</ol>
+<h3 id="running-the-project">Running the Project</h3>
+<ol>
+<li>
+<p>Update the pub:</p>
+<pre class="language-bash"><code class="language-bash">flutter pub get
+</code></pre>
+</li>
+<li>
+<p>Build models with <a href="https://pub.dev/packages/freezed">Freezed</a>:</p>
+<pre class="language-bash"><code class="language-bash">dart run build_runner build --delete-conflicting-outputs  
+</code></pre>
+</li>
+<li>
+<p>Build the apk:</p>
+<pre class="language-bash"><code class="language-bash">flutter build apk
+</code></pre>
+</li>
+</ol>
+<h3 id="author">Author</h3>
+<p><strong>Hamidreza Marzbani</strong></p>
+<ul>
+<li><strong>LinkedIn</strong>: <a href="https://www.linkedin.com/in/marzbani/">https://www.linkedin.com/in/marzbani/</a></li>
+<li><strong>Email</strong>: <a href=""></a><a href="mailto:marzbani.business@gmail.com">marzbani.business@gmail.com</a></li>
+</ul>
+</section>
+
+
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="api_result">
+  <span class="name"><a href="app_base_api_result/app_base_api_result-library.html">api_result</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="app_colors">
+  <span class="name"><a href="app_resources_app_colors/app_resources_app_colors-library.html">app_colors</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="app_spacing">
+  <span class="name"><a href="app_resources_app_spacing/app_resources_app_spacing-library.html">app_spacing</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="app_text">
+  <span class="name"><a href="app_resources_app_text/app_resources_app_text-library.html">app_text</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="base_controller">
+  <span class="name"><a href="app_base_base_controller/app_base_base_controller-library.html">base_controller</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="base_view">
+  <span class="name"><a href="app_base_base_view/app_base_base_view-library.html">base_view</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="exception_handler">
+  <span class="name"><a href="app_network_exception_handler/app_network_exception_handler-library.html">exception_handler</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="extentions">
+  <span class="name"><a href="app_extentions_extentions/app_extentions_extentions-library.html">extentions</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="home_binding">
+  <span class="name"><a href="app_di_home_binding/app_di_home_binding-library.html">home_binding</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="home_screen">
+  <span class="name"><a href="presentation_home_home_screen/presentation_home_home_screen-library.html">home_screen</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="home_view_model">
+  <span class="name"><a href="presentation_home_home_view_model/presentation_home_home_view_model-library.html">home_view_model</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="main">
+  <span class="name"><a href="main/main-library.html">main</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="main_binding">
+  <span class="name"><a href="app_di_main_binding/app_di_main_binding-library.html">main_binding</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="network_client">
+  <span class="name"><a href="app_network_network_client/app_network_network_client-library.html">network_client</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="network_enums">
+  <span class="name"><a href="app_network_network_enums/app_network_network_enums-library.html">network_enums</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="pages">
+  <span class="name"><a href="app_router_pages/app_router_pages-library.html">pages</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="photo">
+  <span class="name"><a href="domain_entities_photo_photo/domain_entities_photo_photo-library.html">photo</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="photo_data_source">
+  <span class="name"><a href="domain_data_source_photo_data_source/domain_data_source_photo_data_source-library.html">photo_data_source</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="photo_dto">
+  <span class="name"><a href="data_models_photo_photo_dto/data_models_photo_photo_dto-library.html">photo_dto</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="photo_list">
+  <span class="name"><a href="presentation_components_photo_list/presentation_components_photo_list-library.html">photo_list</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="photo_repository_impl">
+  <span class="name"><a href="data_repository_photo_repository_impl/data_repository_photo_repository_impl-library.html">photo_repository_impl</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="photo_usecase">
+  <span class="name"><a href="domain_usecase_photo_photo_usecase/domain_usecase_photo_photo_usecase-library.html">photo_usecase</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="photos_remote_data_source">
+  <span class="name"><a href="data_data_source_remote_photos_remote_data_source/data_data_source_remote_photos_remote_data_source-library.html">photos_remote_data_source</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="photos_repository">
+  <span class="name"><a href="domain_repository_photos_repository/domain_repository_photos_repository-library.html">photos_repository</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="response">
+  <span class="name"><a href="app_network_response/app_network_response-library.html">response</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="result_state">
+  <span class="name"><a href="app_base_result_state/app_base_result_state-library.html">result_state</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="search_criteria">
+  <span class="name"><a href="data_models_search_search_criteria/data_models_search_search_criteria-library.html">search_criteria</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+          <dt id="skeleton_list">
+  <span class="name"><a href="presentation_components_skeleton_list/presentation_components_skeleton_list-library.html">skeleton_list</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+        </dl>
+      </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li class="self-crumb">communere package</li>
+</ol>
+
+
+    <h5 class="hidden-xs"><span class="package-name">communere</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="app_base_api_result/app_base_api_result-library.html">api_result</a></li>
+      <li><a href="app_resources_app_colors/app_resources_app_colors-library.html">app_colors</a></li>
+      <li><a href="app_resources_app_spacing/app_resources_app_spacing-library.html">app_spacing</a></li>
+      <li><a href="app_resources_app_text/app_resources_app_text-library.html">app_text</a></li>
+      <li><a href="app_base_base_controller/app_base_base_controller-library.html">base_controller</a></li>
+      <li><a href="app_base_base_view/app_base_base_view-library.html">base_view</a></li>
+      <li><a href="app_network_exception_handler/app_network_exception_handler-library.html">exception_handler</a></li>
+      <li><a href="app_extentions_extentions/app_extentions_extentions-library.html">extentions</a></li>
+      <li><a href="app_di_home_binding/app_di_home_binding-library.html">home_binding</a></li>
+      <li><a href="presentation_home_home_screen/presentation_home_home_screen-library.html">home_screen</a></li>
+      <li><a href="presentation_home_home_view_model/presentation_home_home_view_model-library.html">home_view_model</a></li>
+      <li><a href="main/main-library.html">main</a></li>
+      <li><a href="app_di_main_binding/app_di_main_binding-library.html">main_binding</a></li>
+      <li><a href="app_network_network_client/app_network_network_client-library.html">network_client</a></li>
+      <li><a href="app_network_network_enums/app_network_network_enums-library.html">network_enums</a></li>
+      <li><a href="app_router_pages/app_router_pages-library.html">pages</a></li>
+      <li><a href="domain_entities_photo_photo/domain_entities_photo_photo-library.html">photo</a></li>
+      <li><a href="domain_data_source_photo_data_source/domain_data_source_photo_data_source-library.html">photo_data_source</a></li>
+      <li><a href="data_models_photo_photo_dto/data_models_photo_photo_dto-library.html">photo_dto</a></li>
+      <li><a href="presentation_components_photo_list/presentation_components_photo_list-library.html">photo_list</a></li>
+      <li><a href="data_repository_photo_repository_impl/data_repository_photo_repository_impl-library.html">photo_repository_impl</a></li>
+      <li><a href="domain_usecase_photo_photo_usecase/domain_usecase_photo_photo_usecase-library.html">photo_usecase</a></li>
+      <li><a href="data_data_source_remote_photos_remote_data_source/data_data_source_remote_photos_remote_data_source-library.html">photos_remote_data_source</a></li>
+      <li><a href="domain_repository_photos_repository/domain_repository_photos_repository-library.html">photos_repository</a></li>
+      <li><a href="app_network_response/app_network_response-library.html">response</a></li>
+      <li><a href="app_base_result_state/app_base_result_state-library.html">result_state</a></li>
+      <li><a href="data_models_search_search_criteria/data_models_search_search_criteria-library.html">search_criteria</a></li>
+      <li><a href="presentation_components_skeleton_list/presentation_components_skeleton_list-library.html">skeleton_list</a></li>
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+
+</main>
+
+<footer>
+  <span class="no-break">
+    communere
+      1.0.0+1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+
