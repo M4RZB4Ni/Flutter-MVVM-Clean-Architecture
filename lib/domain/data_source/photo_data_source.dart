@@ -1,9 +1,9 @@
 // Import necessary files and packages for the PhotosDataSource.
+import 'package:communere/data/models/search/search_criteria.dart';
 import 'package:communere/domain/entities/photo/photo.dart';
 
 // Import the API result class and the search criteria entity.
 import '../../app/base/api_result.dart';
-import '../entities/search/search_criteria.dart';
 
 // Abstract class defining the contract for a data source to fetch photos.
 abstract class PhotosDataSource {

@@ -1,6 +1,6 @@
 import 'package:communere/app/base/api_result.dart';
+import 'package:communere/data/models/search/search_criteria.dart';
 import 'package:communere/domain/entities/photo/photo.dart';
-import 'package:communere/domain/entities/search/search_criteria.dart';
 
 // Import the repository interface.
 import 'package:communere/domain/repository/photos_repository.dart';

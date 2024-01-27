@@ -1,6 +1,6 @@
 // Import necessary packages and files.
 import 'package:communere/app/base/base_controller.dart';
-import 'package:communere/domain/entities/search/search_criteria.dart';
+import 'package:communere/data/models/search/search_criteria.dart';
 import 'package:communere/domain/usecase/photo/photo_usecase.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';

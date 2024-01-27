@@ -1,6 +1,7 @@
-import 'package:communere/domain/entities/search/search_criteria.dart';
 
 // Import the API result class and the Photo entity.
+import 'package:communere/data/models/search/search_criteria.dart';
+
 import '../../app/base/api_result.dart';
 import '../entities/photo/photo.dart';
 

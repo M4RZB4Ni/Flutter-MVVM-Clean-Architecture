@@ -3,9 +3,9 @@ import 'package:communere/app/network/exception_handler.dart';
 import 'package:communere/app/network/network_client.dart';
 import 'package:communere/app/network/network_enums.dart';
 import 'package:communere/data/models/photo/photo_dto.dart';
+import 'package:communere/data/models/search/search_criteria.dart';
 import 'package:communere/domain/data_source/photo_data_source.dart';
 import 'package:communere/domain/entities/photo/photo.dart';
-import 'package:communere/domain/entities/search/search_criteria.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
