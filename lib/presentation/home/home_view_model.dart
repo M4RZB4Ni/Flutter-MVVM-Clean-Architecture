@@ -4,7 +4,6 @@ import 'package:communere/data/models/search/search_criteria.dart';
 import 'package:communere/domain/usecase/photo/photo_usecase.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-
 import '../../domain/entities/photo/photo.dart';
 
 // View model for the HomeScreen, extending BaseController.
