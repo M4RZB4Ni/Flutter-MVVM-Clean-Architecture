@@ -57,7 +57,7 @@ The Project is Based on MVVM and Clean-Architecture with consideration of SOLID 
 1. Clone the repository:
 
    ```bash
-   [git clone https://github.com/m4rzb4ni/communere.git](https://github.com/M4RZB4Ni/Flicker_Image_Fetcher.git)
+   git clone https://github.com/m4rzb4ni/communere.git
 
 ### Running the Project
 
